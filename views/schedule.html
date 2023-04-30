@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/schedule.css">
+</head>
+<body>
+    <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
+      <div class="title">
+        <h1>Schedule a meeting with co-Terraformers</h1>
+      </div>
+      <h2>Available Terraformers: </h2>
+      <div class="table">
+        <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+              </tr>
+            </thead>
+            <tbody id = "tbody">
+            </tbody>
+          </table>
+      </div>
+
+      <div id="tablemodal" class="modal">
+        <div class="modal-content">
+
+            <form action="/bookmeeting" method="post" id = "modform">
+                <h1 id = "modtitle"></h1>
+            </form>
+        </div>
+        </div>
+
+
+</body>
+<script src="./scripts/schedule.js"></script>
+</html>

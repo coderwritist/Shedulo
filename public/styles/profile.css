@@ -1,0 +1,250 @@
+body {
+    background-color: #121212;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+  .title
+  {
+    text-align: center;
+    color: cornflowerblue;
+    font-size: 30px;
+    padding-top: 30px;
+    margin: 0px 0px;
+    letter-spacing: 8px;
+  }
+  
+  nav {
+    background-color: #333;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    line-height: 50px;
+    margin-right: 20px;
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    display: inline-block;
+    padding: 0 10px;
+    text-decoration: none;
+    font-size: 30px;
+    color:black;
+    font-weight: bold;
+    background-color: cornflowerblue;
+    border-radius: 20px;
+  }
+  .lr
+  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .container {
+    margin-top: 80px;
+  }
+  
+  .left-section {
+    float: left;
+    width: 50%;
+    background-color: #303030;
+    padding:3%;
+    margin-left: 7%;
+    margin-bottom: 7%;
+    border-radius: 10px;
+    margin-right: 0px;
+  }
+
+  button{
+    background-color: cornflowerblue;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    transition: background-color 0.2s;
+    width: 100%;
+  }
+  button:hover {
+    background-color: rgb(67, 100, 161);
+  }
+  
+  h1
+  {
+    color: cornflowerblue;
+  }
+  
+  .right-section {
+    float: right;
+    width: 50%;
+    background-color: #303030;
+    padding:3%;
+    margin-right: 7%;
+    margin-bottom: 7%;
+    border-radius: 10px;
+
+
+  }
+  
+  .bottom-section {
+    clear: both;
+    margin-top: 50px;
+    background-color: #303030;
+    padding:3%;
+    margin: auto auto;
+    margin-left: 7%;
+    margin-right: 7%;
+    border-radius: 10px;
+
+  }
+  
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  
+  h3 {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+  
+  p {
+    margin-top: 0;
+  }
+  
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul li {
+    margin-bottom: 10px;
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      justify-content: center;
+    }
+  
+    .left-section {
+      width: auto;
+      margin-right: 100px;
+    }
+  
+    .right-section {
+      width: auto;
+    }
+  
+    .bottom-section {
+      width: auto;
+    }
+  }
+
+
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    color: white;
+       
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: rgb(80, 80, 80);
+    border: 5px;
+    border-radius: 20px; 
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+  }
+
+  .modal input
+  {
+    color: black;
+  }
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  input{
+    background-color: #dddddd;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 95%;
+    margin-right: 20px;
+  }
+
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: white;
+  }
+  
+  th {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    text-align: left;
+    background-color: rgba(100, 148, 237, 0.555);
+    border-bottom: 2px solid #23262d;
+  }
+  
+  td {
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #23262d;
+  }
+  
+  tr:nth-child(2n) {
+    background-color: rgba(100, 148, 237, 0.164);
+
+  }
+  
+  tr:hover {
+    background-color: black;
+  }
+  

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meeting Scheduler App</title>
+  <link rel="stylesheet" href="./styles/profile.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="/schedule">Schedule a meeting</a></li>
+    </ul>
+  </nav>
+  <div class="title">
+    <h1>SHEDULO</h1>
+  </div>
+  <div class="container">
+    <div class="lr">
+      
+      <div class="left-section">
+        <h1>Profile</h1>
+        <h2 id = "name"></h2>
+        <h3 id = "email"></h3>
+        <h3 id = "phone"></h3>
+        <button id = "edit">Edit</button>
+      </div>
+      <div class="right-section">
+        <h1>Meeting Requests</h1>
+        <h2 id = "noup" style = "display:none;">No upcoming meetings</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>From</th>
+              <th>Subject</th>
+              <th>Slot</th>
+              <th>Response</th>
+            </tr>
+          </thead>
+          <tbody id = "tbody1">
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="bottom-section">
+      <h1>Settings</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Time slot</th>
+            <th>Appointments/Meetings</th>
+          </tr>
+        </thead>
+        <tbody id = "tbody">
+        </tbody>
+      </table>
+      <button id = "edittable">Edit slots</button>
+      <p>Note: Mark your off-hours using the above button</p>
+      </ul>
+    </div>
+  </div>
+
+
+  
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <form action="/updateuser" method = "post">
+        <label for="name">Name</label>
+        <input type="name" id = "name" name = "username" placeholder="Name" required>
+        <label for="ph">Phone Number</label>
+        <input type="phone" id = "ph" placeholder="PhNo" name = "phone" required>
+        <label for="email">Email</label>
+        <input type="email" id = "email" placeholder="Email" name = "email" required>
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id = "password" name = "password" required>
+        <button type="submit" id = "subbut">Update</button>
+        <button type="button" id = "canbut">cancel</button>
+      </form>
+    </div>
+    </div>
+
+    <div id="tablemodal" class="modal">
+      <div class="modal-content">
+        <form action="/updateslots" method = "post" id = "tableform">
+          <h1>Edit you time slots: </h1>
+        </form>
+      </div>
+      </div>
+
+
+
+</body>
+<script src = "./scripts/profile.js"></script>
+</html>
