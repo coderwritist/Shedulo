@@ -22,4 +22,19 @@
     </form>
   </div>
 </body>
+<script>
+	window.onload = function() {
+    const queryString = window.location.search;
+    console.log(queryString); 
+
+    const urlParams = new URLSearchParams(queryString);
+    const error= urlParams.get('error');
+    console.log(error)
+    console.log(typeof error); 
+    if(error === "invalid credentials")
+    {
+        alert("invalid credentials")
+    }
+  }
+  </script>
 </html>

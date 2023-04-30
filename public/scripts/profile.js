@@ -5,7 +5,12 @@ function updatereq(user)
     var req = user.requests;
     const tb = document.getElementById("tbody1");
     if(req.length == 0)
+    {
         document.getElementById("noup").style.display = "block";
+        document.getElementById("reqtable").style.display = "none";
+    }
+    else
+    {
     for(let i = 0; i<req.length; i++)
     {
         let tr = document.createElement("tr");
@@ -33,9 +38,50 @@ function updatereq(user)
         tr.appendChild(td3);
         tr.appendChild(td4);
         if(user.slots[req[i].slot] != null)
-            but1.style.display = "none";
+        {
+            but1.disabled = true;
+            but1.style.backgroundColor = "grey";
+            but1.style.cursor = "not-allowed";
+        }
+        but1.addEventListener("click", async function(){
+        
+            // fetch post call
+            const res = await fetch("/acceptreq", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    sender: req[i].email,
+                    sendername: req[i].username,
+                    subject: req[i].subject,
+                    slot: req[i].slot,
+                })  
+        });
+        window.location.reload();
+        });
+        but2.addEventListener("click", async function(){
+        
+            // fetch post call
+            const res = await fetch("/rejectreq", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    sender: req[i].email,
+                    sendername: req[i].username,
+                    subject: req[i].subject,
+                    slot: req[i].slot,
+                })  
+        });
+        window.location.reload();
+        });
+
+
 
         tb.appendChild(tr);
+    }
     }
 }
 
@@ -59,12 +105,18 @@ window.onload = async function()
             let td2 = document.createElement("td");
             td1.innerHTML = key;
             if(slots[key] != null)
+            {
                 td2.innerHTML = slots[key];
+                if(slots[key].includes("Rejected"))
+                td2.style.color = "red";
+            }
+
             else
             {
                 td2.innerHTML = "Available";
                 td2.style.color = "green";
             }
+            
             tr.appendChild(td1);
             tr.appendChild(td2);
             tb.appendChild(tr);

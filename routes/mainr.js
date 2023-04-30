@@ -29,6 +29,8 @@ router.get("/schedule", usercon.isAuth, function(req, res){
 router.get("/getuser", usercon.isAuth, usercon.getuser);
 router.get("/getalluser", usercon.isAuth, usercon.getalluser);
 router.get("/logout", usercon.isAuth, usercon.logout);
+// router.get("/reset", usercon.isAuth, usercon.reset);
+
 
 
 
@@ -40,6 +42,9 @@ router.post("/login", usercon.logincon);
 router.post("/updateuser", usercon.isAuth, usercon.updateuser);
 router.post("/updateslots", usercon.isAuth, usercon.updateslots);
 router.post("/bookmeeting", usercon.isAuth, usercon.bookmeeting);
+router.post("/acceptreq", usercon.isAuth, usercon.acceptreq);
+router.post("/rejectreq", usercon.isAuth, usercon.rejectreq);
+
 
 
 

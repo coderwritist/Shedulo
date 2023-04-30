@@ -1,8 +1,10 @@
-function updatetable(users)
+function updatetable(users, user1)
 {
     const tb = document.getElementById("tbody");
     for(let i = 0; i<users.length; i++)
     {
+        if(users[i].email != user1.email)
+        {
         let tr = document.createElement("tr");
         tr.style.cursor = "pointer";
         let td1 = document.createElement("td");
@@ -59,6 +61,12 @@ function updatetable(users)
             inputtemp.value = users[i].email;
             inputtemp.style.display = "none";
             modform.appendChild(inputtemp);
+            const inputtemp1 = document.createElement("input");
+            inputtemp1.type = "hidden";
+            inputtemp1.name = "recname";
+            inputtemp1.value = users[i].username;
+            inputtemp1.style.display = "none";
+            modform.appendChild(inputtemp1);
             button2.addEventListener("click", function(){
                 tablemodal.style.display = "none";
                 modform.removeChild(label);
@@ -74,6 +82,8 @@ function updatetable(users)
         tr.appendChild(td3);
         tb.appendChild(tr);
     }
+    }
+    
 }
 
 
@@ -81,8 +91,10 @@ window.onload = async function()
 {
     try{
         const res = await fetch("/getalluser");
+        const res1 = await fetch("/getuser");
         users = await res.json();
-        updatetable(users);
+        user1 = await res1.json();
+        updatetable(users, user1);
 
     }
     catch(err)

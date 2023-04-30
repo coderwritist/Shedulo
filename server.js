@@ -9,7 +9,9 @@ const { default: mongoose } = require("mongoose")
 const User = require('./models/user.js');
 const session = require('express-session');  // session middleware
 const MongoDBStore = require("connect-mongodb-session")(session);
-
+const cron = require('node-cron');
+const moment = require('moment-timezone');
+const usercon = require("./controllers/usercon.js")
 
 
 const store = new MongoDBStore({
@@ -39,6 +41,22 @@ mongoose.set('strictQuery', true)
 app.all('*', function(req, res){
     res.sendFile(path.join(__dirname, "/views/404.html"))
 })
+
+
+
+const timeZone = 'Asia/Kolkata'; // IST time zone
+const schedule = '0 0 * * *'; // runs at midnight every day
+const cronJob = cron.schedule(schedule, () => {
+  const now = moment.tz(timeZone);
+  const nextMidnight = now.clone().add(1, 'day').startOf('day');
+  const delay = nextMidnight.diff(now);
+  setTimeout(usercon.reset, delay);
+}, {
+  scheduled: true,
+  timezone: timeZone,
+});
+cronJob.start();
+
 
 
 mongoose.connection.once("open", ()=>{
