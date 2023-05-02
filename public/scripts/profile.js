@@ -89,6 +89,22 @@ function updatereq(user)
 
 window.onload = async function()
 {
+        const queryString = window.location.search;
+        console.log(queryString); 
+      
+        const urlParams = new URLSearchParams(queryString);
+        const error= urlParams.get('error');
+        console.log(error)
+        console.log(typeof error); 
+        if(error === "Mail ID already exists")
+        {
+            alert("Mail ID already exists")
+        }
+        else if(error === "invalid email")
+        {
+            alert("invalid email")
+        }
+      
     try{
         const res = await fetch("/getuser");
         user = await res.json();
@@ -190,6 +206,13 @@ edit.addEventListener("click", function(){
     modal.style.display = "block";
     const subbut = document.getElementById("subbut");
     const canbut = document.getElementById("canbut");
+    const {username, email, phone, slots} = user;
+    document.getElementById("name1").value = `${username}`;
+    document.getElementById("email1").value = `${email}`;
+    document.getElementById("ph1").value = `${phone}`;
+    document.getElementById("name1").placeholder = `${username}`;
+    document.getElementById("email1").placeholder = `${email}`;
+    document.getElementById("ph1").placeholder = `${phone}`; 
     canbut.addEventListener("click", function(){
         modal.style.display = "none";
     });

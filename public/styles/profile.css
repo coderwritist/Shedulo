@@ -51,13 +51,7 @@ body {
     background-color: cornflowerblue;
     border-radius: 20px;
   }
-  .lr
-  {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px;
-  }
+
   
   .container {
     margin-top: 80px;

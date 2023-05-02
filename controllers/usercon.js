@@ -93,11 +93,17 @@ const updateuser = async (req, res) => {
 
   const preemail = req.session.email;
   const email = req.body.email;
+  let user = await User.findOne({ email });
+    if (user && user.email != preemail) {
+        req.session.error = "Mail ID already exists";
+        return res.redirect("/?error=Mail ID already exists");
+      }
   const username = req.body.username;
   const phone = req.body.phone;
   const password = req.body.password;
+  const hasdPsw = await bcrypt.hash(password, 10);
   const filter = { email: preemail};
-  const update = { email: email, username: username, phone: phone, password: password};
+  const update = { email: email, username: username, phone: phone, password: hasdPsw};
   const options = { new: true };
   const updatedUser = await User.findOneAndUpdate(filter, update, options);
   req.session.username = updatedUser.username;
